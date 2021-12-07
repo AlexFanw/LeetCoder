@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/AlexFanw/LeetCoder/GoCoder/answer"
+)
 
 func main(){
-	var s = [...]int{1,2,3,4,5,6}
-	a := s[1:3]
-	fmt.Println(len(a), cap(a))
-	fmt.Println(s[1:3])
+	var x = []int{1,2,3,4,5,6}
+	y := x
+	y[0] = 99
+	fmt.Println(answer.SortAnArray([]int{1,2,3}))
 }
