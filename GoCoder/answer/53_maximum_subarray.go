@@ -1,7 +1,7 @@
 package answer
 
-func MaxSubArray(nums []int) int {
-	//@description : 试着倒过来看
+func MaxSubArray(nums []int) (int){
+	// @description : 试着倒过来看
 	// f(k) = Max{f(k-1)+num[k], f(k-1)}
 	// 这里的f(k)其实就是num[k]，遍历过程中会更改num上每一位成为它的最大值
 	if len(nums) == 0{
