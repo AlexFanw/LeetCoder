@@ -6,7 +6,9 @@
 #define CPPCODER_SOLUTION_H
 
 #include <vector>
+#include "string"
 using std::vector;
+using std::string;
 
 struct ListNode {
     int val;
@@ -21,6 +23,8 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target);
     ListNode* reverseList(ListNode* head);
+    static int lengthOfLongestSubstring(string s);
+
 };
 
 

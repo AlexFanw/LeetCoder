@@ -8,6 +8,7 @@ using std::cout;
 using std::map;
 /*
  * 1.两数之和
+ * tips: hash
  */
 vector<int> Solution::twoSum(vector<int> &nums, int target) {
     map<int, int> hash_two;
@@ -23,6 +24,7 @@ vector<int> Solution::twoSum(vector<int> &nums, int target) {
 
 /*
  * 206.反转链表
+ * tips: 三指针
  */
 ListNode* Solution::reverseList(ListNode* head) {
     if (head == nullptr){
@@ -42,3 +44,26 @@ ListNode* Solution::reverseList(ListNode* head) {
     }
     return b_node;
 };
+
+/*
+ * 3.无重复字符的最长子串
+ * 双指针
+ */
+
+int Solution::lengthOfLongestSubstring(string s) {
+    int max_len = 0;
+    int now_len = 0;
+    int beg = 0;
+    for (int i = 0; i < s.length(); ++i){
+        if(s.substr(beg, now_len).find(s[i]) == string::npos){
+            now_len += 1;
+        } else{
+            beg = s.substr(beg, now_len).find(s[i]) + 1 + beg;
+            now_len = i + 1 - beg;
+        }
+        if (max_len < now_len){
+            max_len = now_len;
+        }
+    }
+    return max_len;
+}
