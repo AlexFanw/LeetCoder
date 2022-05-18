@@ -3,4 +3,4 @@ project(CppCoder)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(CppCoder main.cpp solution.cpp solution.h)
+add_executable(CppCoder main.cpp solution.cpp solution.h LRUCache.cpp LRUCache.h)

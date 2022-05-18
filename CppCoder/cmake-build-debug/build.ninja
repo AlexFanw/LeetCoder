@@ -84,6 +84,12 @@ build CMakeFiles/CppCoder.dir/solution.cpp.o: CXX_COMPILER__CppCoder_Debug /User
   OBJECT_DIR = CMakeFiles/CppCoder.dir
   OBJECT_FILE_DIR = CMakeFiles/CppCoder.dir
 
+build CMakeFiles/CppCoder.dir/LRUCache.cpp.o: CXX_COMPILER__CppCoder_Debug /Users/alexfan/LeetCoder/CppCoder/LRUCache.cpp || cmake_object_order_depends_target_CppCoder
+  DEP_FILE = CMakeFiles/CppCoder.dir/LRUCache.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -std=gnu++14
+  OBJECT_DIR = CMakeFiles/CppCoder.dir
+  OBJECT_FILE_DIR = CMakeFiles/CppCoder.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target CppCoder
@@ -92,7 +98,7 @@ build CMakeFiles/CppCoder.dir/solution.cpp.o: CXX_COMPILER__CppCoder_Debug /User
 #############################################
 # Link the executable CppCoder
 
-build CppCoder: CXX_EXECUTABLE_LINKER__CppCoder_Debug CMakeFiles/CppCoder.dir/main.cpp.o CMakeFiles/CppCoder.dir/solution.cpp.o
+build CppCoder: CXX_EXECUTABLE_LINKER__CppCoder_Debug CMakeFiles/CppCoder.dir/main.cpp.o CMakeFiles/CppCoder.dir/solution.cpp.o CMakeFiles/CppCoder.dir/LRUCache.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   OBJECT_DIR = CMakeFiles/CppCoder.dir
   POST_BUILD = :
