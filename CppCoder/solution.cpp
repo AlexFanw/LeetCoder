@@ -67,3 +67,32 @@ int Solution::lengthOfLongestSubstring(string s) {
     }
     return max_len;
 }
+
+/*
+ * 215.数组中的第K个最大元素
+ */
+
+int Solution::findKthLargest(vector<int>& nums, int k){
+    if (nums.size() < k){
+        return 0;
+    }
+    vector<int> left, right;
+    int r = (rand() % (nums.size()));
+    int mid = nums[r];
+    for (int i = 0; i < nums.size(); ++i) {
+        if (i == r){
+            continue;
+        }else if (nums[i] < mid){
+            left.push_back(nums[i]);
+        } else{
+            right.push_back(nums[i]);
+        }
+    }
+    if (right.size() == k-1){
+        return mid;
+    }else if(right.size() > k-1){
+        return findKthLargest(right, k);
+    }else{
+        return findKthLargest(left, k-right.size()-1);
+    }
+}

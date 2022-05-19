@@ -24,7 +24,7 @@ public:
     vector<int> twoSum(vector<int>& nums, int target);
     ListNode* reverseList(ListNode* head);
     static int lengthOfLongestSubstring(string s);
-
+    static int findKthLargest(vector<int>& nums, int k);
 };
 
 

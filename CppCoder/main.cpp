@@ -6,12 +6,6 @@ using std::vector;
 using std::string;
 
 int main() {
-    LRUCache *lru = new LRUCache(2);
-    lru->put(1,1);
-    std::cout << lru->get(1) << std::endl;
-    lru->put(2,2);
-    lru->put(3,3);
-    std::cout << lru->get(3) << std::endl;
-    std::cout << lru->get(2) << std::endl;
-    std::cout << lru->get(1) << std::endl;
+    vector<int> a = {11,2,35,47,5,16,17,68,29,0};
+    std::cout << Solution::findKthLargest(a, 2) << std::endl;
 }
