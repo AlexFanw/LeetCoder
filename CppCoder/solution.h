@@ -25,6 +25,7 @@ public:
     ListNode* reverseList(ListNode* head);
     static int lengthOfLongestSubstring(string s);
     static int findKthLargest(vector<int>& nums, int k);
+    static ListNode* reverseKGroup(ListNode* head, int k);
 };
 
 

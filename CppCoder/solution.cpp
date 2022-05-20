@@ -96,3 +96,41 @@ int Solution::findKthLargest(vector<int>& nums, int k){
         return findKthLargest(left, k-right.size()-1);
     }
 }
+
+/*
+ * 25.K个一组翻转链表
+ * tips: 递归法，把前面已经完成翻转的k个节点视作一个整体
+ *       注意后续如果不满k个节点，就不要翻转了
+ */
+
+ListNode *Solution::reverseKGroup(ListNode *head, int k) {
+    if (head == nullptr){
+        return nullptr;
+    }
+    ListNode *first = head;
+    ListNode *start = nullptr;
+    ListNode *mid = head;
+    ListNode *end = head->next;
+
+    //检查后续是否还有K个节点
+    ListNode *detect = head;
+    for (int i = 0; i < k; i++){
+        if (detect == nullptr){
+            return first;
+        }
+        detect = detect->next;
+    }
+
+    for (int i = 0; i < k-1; i++){
+        ListNode *next_end = end->next;
+        mid->next = start;
+        end->next = mid;
+        start = mid;
+        mid = end;
+        end = next_end;
+    }
+    if (end != nullptr){
+        first->next = reverseKGroup(end, k);
+    }
+    return mid;
+}
