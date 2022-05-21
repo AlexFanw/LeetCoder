@@ -21,14 +21,14 @@ struct ListNode {
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target);
-    ListNode* reverseList(ListNode* head);
-    static int lengthOfLongestSubstring(string s);
-    static int findKthLargest(vector<int>& nums, int k);
-    static ListNode* reverseKGroup(ListNode* head, int k);
-    static vector<vector<int>> threeSum(vector<int>& nums);
-    static vector<int> sortArray(vector<int>& nums);
-    static vector<int>& quickSort(vector<int>& nums, int start, int end);
+    vector<int> twoSum(vector<int>& nums, int target); //1.两数之和：hash
+    ListNode* reverseList(ListNode* head); //206.反转链: 三指针
+    static int lengthOfLongestSubstring(string s); // 3.无重复字符的最长子串：双指针
+    static int findKthLargest(vector<int>& nums, int k); // 215.数组中的第K个最大元素：快排
+    static ListNode* reverseKGroup(ListNode* head, int k); //25.K个一组翻转链表 tips: 递归法，把前面已经完成翻转的k个节点视作一个整体，注意后续如果不满k个节点，就不要翻转了
+    static vector<vector<int>> threeSum(vector<int>& nums); //15.三数之和 tips: 排序+双指针
+    static vector<int> sortArray(vector<int>& nums); //912.排序数组
+    static vector<int>& quickSort(vector<int>& nums, int start, int end); //912.快速排序
 };
 
 
