@@ -134,3 +134,54 @@ ListNode *Solution::reverseKGroup(ListNode *head, int k) {
     }
     return mid;
 }
+
+/*
+ * 15.三数之和
+ * tips: 排序+双指针
+ */
+
+vector<vector<int>> Solution::threeSum(vector<int>& nums){
+    vector<vector<int>> result;
+    if (nums.size() < 3) return {};
+    std::sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] > 0) break; //提前结束
+        if (i > 0 && nums[i] == nums[i-1]) continue;
+
+        int pivot = nums[i];
+        int begin = i+1;
+        int end = nums.size() - 1;
+
+        while (begin < end) {
+            if (pivot + nums[begin] + nums[end] > 0){
+                while(begin < end && nums[end] == nums[end-1]) end -= 1; // 尾部去重
+                end -= 1;
+            }else if (pivot + nums[begin] + nums[end] <= 0){
+                if (pivot + nums[begin] + nums[end] == 0){
+                    result.push_back(vector<int>{pivot, nums[begin], nums[end]});
+                }
+                while(begin < end && nums[begin] == nums[begin+1]) begin += 1; // 头部去重
+                begin += 1;
+            }
+        }
+    }
+    return result;
+}
+
+//快速排序，精髓在于碰到比pivot大的数字i，先将i和pivot后面一个数字交换，再和pivot交换。
+vector<int>& Solution::quickSort(vector<int>& nums, int start, int end){
+    if (end - start <= 1){
+        return nums;
+    }
+    int pivot = start;
+    for (int i = start+1; i < end; ++i) {
+        if (nums[i] < nums[pivot]){
+            std::swap(nums[pivot+1], nums[i]);
+            std::swap(nums[pivot], nums[pivot+1]);
+            pivot += 1;
+        }
+    }
+    quickSort(nums, start, pivot);
+    quickSort(nums, pivot+1, end);
+    return nums;
+}

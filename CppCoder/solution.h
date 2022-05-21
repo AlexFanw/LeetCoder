@@ -26,6 +26,8 @@ public:
     static int lengthOfLongestSubstring(string s);
     static int findKthLargest(vector<int>& nums, int k);
     static ListNode* reverseKGroup(ListNode* head, int k);
+    static vector<vector<int>> threeSum(vector<int>& nums);
+    static vector<int>& quickSort(vector<int>& nums, int start, int end);
 };
 
 
