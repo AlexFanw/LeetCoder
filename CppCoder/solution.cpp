@@ -168,12 +168,21 @@ vector<vector<int>> Solution::threeSum(vector<int>& nums){
     return result;
 }
 
-//快速排序，精髓在于碰到比pivot大的数字i，先将i和pivot后面一个数字交换，再和pivot交换。
+/*
+ * 912.排序数组
+ * tips: 快速排序，精髓在于碰到比pivot大的数字i，先将i和pivot后面一个数字交换，再和pivot交换。
+ */
+vector<int> Solution::sortArray(vector<int>& nums) {
+    return quickSort(nums, 0, nums.size());
+}
+
 vector<int>& Solution::quickSort(vector<int>& nums, int start, int end){
     if (end - start <= 1){
         return nums;
     }
-    int pivot = start;
+    int pivot = (rand() % (end-start))+ start;
+    std::swap(nums[pivot], nums[start]);
+    pivot = start;
     for (int i = start+1; i < end; ++i) {
         if (nums[i] < nums[pivot]){
             std::swap(nums[pivot+1], nums[i]);
