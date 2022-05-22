@@ -29,6 +29,8 @@ public:
     static vector<vector<int>> threeSum(vector<int>& nums); //15.三数之和 tips: 排序+双指针
     static vector<int> sortArray(vector<int>& nums); //912.排序数组
     static vector<int>& quickSort(vector<int>& nums, int start, int end); //912.快速排序
+    static int maxSubArray(vector<int>& nums); //53.最大子序和 tips:负数则重开，正数则累加
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2); //21.合并两个有序链表 tips：递归法
 };
 
 

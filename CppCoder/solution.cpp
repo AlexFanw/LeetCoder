@@ -194,3 +194,41 @@ vector<int>& Solution::quickSort(vector<int>& nums, int start, int end){
     quickSort(nums, pivot+1, end);
     return nums;
 }
+
+/*
+ * 53.最大子序和
+ * tips：负数则重开，正数则累加
+ */
+
+int Solution::maxSubArray(vector<int> &nums) {
+    int max_sum = nums[0];
+    int now_sum = nums[0];
+    for (int i = 1; i < nums.size(); ++i) {
+        if (now_sum < 0){
+            now_sum = nums[i];
+        } else{
+            now_sum += nums[i];
+        }
+        if (now_sum > max_sum){
+            max_sum = now_sum;
+        }
+    }
+    return max_sum;
+}
+
+/*
+ * 21.合并两个有序链表
+ * tips：递归法
+ */
+
+ListNode* Solution::mergeTwoLists(ListNode* list1, ListNode* list2){
+    if (list1 == nullptr) return list2;
+    if (list2 == nullptr) return list1;
+    if (list1->val >= list2->val){
+        list2->next = mergeTwoLists(list1, list2->next);
+        return list2;
+    } else{
+        list1->next = mergeTwoLists(list1->next, list2);
+        return list1;
+    }
+}
