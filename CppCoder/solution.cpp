@@ -232,3 +232,38 @@ ListNode* Solution::mergeTwoLists(ListNode* list1, ListNode* list2){
         return list1;
     }
 }
+
+/*
+ * 102.二叉树的层序遍历
+ * tips：用一个变量保存每一层的节点数量，再用队列先进先出
+ */
+
+vector<vector<int>> Solution::levelOrder(TreeNode* root){
+    if (root == nullptr){
+        return {};
+    }
+    vector<TreeNode*> queue_tree{root};
+    int count = 1;
+    vector<vector<int>> result{vector<int>{root->val}};
+    vector<int> temp;
+    while (queue_tree.size() > 0){
+        if (count > 0){
+            TreeNode *start = queue_tree[0];
+            if (start->left != nullptr){
+                queue_tree.push_back(start->left);
+                temp.push_back(start->left->val);
+            }
+            if (start->right != nullptr){
+                queue_tree.push_back(start->right);
+                temp.push_back(start->right->val);
+            }
+            queue_tree.erase(queue_tree.begin());
+            --count;
+        }else{
+            result.push_back(temp);
+            temp = {};
+            count = queue_tree.size();
+        }
+    }
+    return result;
+}
