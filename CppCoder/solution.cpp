@@ -267,3 +267,21 @@ vector<vector<int>> Solution::levelOrder(TreeNode* root){
     }
     return result;
 }
+
+/*
+ * 121.买卖股票的最佳时机
+ * tips: 保存历史最低点，和现在的价格进行相减。
+ */
+int Solution::maxProfit(vector<int>& prices){
+    int min = prices[0];
+    int max_profit = 0;
+    for (int i = 0; i < prices.size(); ++i) {
+        if (min > prices[i]){
+            min = prices[i];
+        }
+        if (prices[i] - min > max_profit){
+            max_profit = prices[i] - min;
+        }
+    }
+    return max_profit;
+}

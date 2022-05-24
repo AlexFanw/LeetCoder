@@ -40,6 +40,7 @@ public:
     static int maxSubArray(vector<int>& nums); //53.最大子序和 tips:负数则重开，正数则累加
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2); //21.合并两个有序链表 tips：递归法
     vector<vector<int>> levelOrder(TreeNode* root); // 102.二叉树的层序遍历：tips：用一个变量保存每一层的节点数量，再用队列先进先出
+    static int maxProfit(vector<int>& prices); //121.买卖股票的最佳时机 tips: 保存历史最低点，和现在的价格进行相减。
 };
 
 
