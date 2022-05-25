@@ -285,3 +285,42 @@ int Solution::maxProfit(vector<int>& prices){
     }
     return max_profit;
 }
+
+/*
+ * 20.有效的括号
+ * tips: 栈
+ */
+
+bool Solution::isValid(string s){
+    vector<char> st{};
+    for (int i = 0; i < s.size(); ++i) {
+        if (st.size() == 0) st.push_back(s[i]);
+        if ((s[i] == ')' && st[st.size()-1] == '(')||
+            (s[i] == ']' && st[st.size()-1] == '[')||
+            (s[i] == '}' && st[st.size()-1] == '{')){
+            st.erase(st.end()-1);
+        }else{
+            st.push_back(s[i]);
+        }
+    }
+    if (st.size() == 0) return true;
+    else return false;
+}
+
+/*
+ * 141.环形链表
+ * tips: 快慢指针
+ */
+
+bool Solution::hasCycle(ListNode *head){
+    ListNode *slow = head;
+    ListNode *fast = head;
+    while (fast != nullptr && fast->next != nullptr && fast->next->next != nullptr){
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast){
+            return true;
+        }
+    }
+    return false;
+}
