@@ -324,3 +324,41 @@ bool Solution::hasCycle(ListNode *head){
     }
     return false;
 }
+
+/*
+ * 103.二叉树的锯齿形层序遍历
+ * tips:节点放入vector的顺序不变，每层改变取出的顺序
+ */
+vector<vector<int>> Solution::zigzagLevelOrder(TreeNode* root) {
+    if (root == nullptr){
+        return {};
+    }
+    vector<TreeNode*> queue_tree{root};
+    int count = 1;
+    vector<vector<int>> result{vector<int>{root->val}};
+    vector<int> temp;
+    bool direction = false;
+    while (queue_tree.size() > 0){
+        if (count > 0){
+            TreeNode *start = queue_tree[0];
+            queue_tree.erase(queue_tree.begin());
+            if (start->left != nullptr){
+                if (direction == true) temp.push_back(start->left->val);
+                else temp.insert(temp.begin(), start->left->val);
+                queue_tree.push_back(start->left);
+            }
+            if (start->right != nullptr){
+                if (direction == true) temp.push_back(start->right->val);
+                else temp.insert(temp.begin(), start->right->val);
+                queue_tree.push_back(start->right);
+            }
+            --count;
+        }else{
+            result.push_back(temp);
+            temp = {};
+            count = queue_tree.size();
+            direction = !direction;
+        }
+    }
+    return result;
+}
