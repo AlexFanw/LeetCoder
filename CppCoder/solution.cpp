@@ -362,3 +362,35 @@ vector<vector<int>> Solution::zigzagLevelOrder(TreeNode* root) {
     }
     return result;
 }
+
+/*
+ * 33.搜索旋转排序数组
+ * tips: 类比快速排序，用递归空间消耗比较大，建议使用循环
+ */
+
+int Solution::search(vector<int>& nums, int target) {
+    return Solution::searchQuick(nums, 0, nums.size()-1, target);
+}
+
+int Solution::searchQuick(vector<int>& nums, int begin, int end, int target){
+    if (target == nums[begin]) return begin;
+    if (target == nums[end]) return end;
+    if (end - begin <= 1){
+        return -1;
+    }
+    int mid = (begin + end) / 2;
+
+    if (nums[begin] < nums[mid]){
+        if (nums[begin] < target && target < nums[mid]){
+            return searchQuick(nums, begin, mid ,target);
+        }else{
+            return searchQuick(nums, mid, end ,target);
+        }
+    }else{
+        if (nums[mid] < target && target < nums[end]){
+            return searchQuick(nums, mid, end ,target);
+        }else{
+            return searchQuick(nums, begin, mid ,target);
+        }
+    }
+}

@@ -45,6 +45,7 @@ public:
     static bool isValid(string s); //20.有效的括号 tips:栈
     static bool hasCycle(ListNode *head); //141.环形链表，tips:快慢指针
     static vector<vector<int>> zigzagLevelOrder(TreeNode *root); //103.二叉树的锯齿形层序遍历 tips:tips:节点放入vector的顺序不变，每层改变取出的顺序
+    static int search(vector<int> &nums, int target); //33.搜索旋转排序数组 tips: 类比快速排序，用递归空间消耗比较大，建议使用循环
+    static int searchQuick(vector<int>& nums, int begin, int end, int target);
 };
-
 #endif //CPPCODER_SOLUTION_H
