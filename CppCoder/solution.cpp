@@ -394,3 +394,27 @@ int Solution::searchQuick(vector<int>& nums, int begin, int end, int target){
         }
     }
 }
+
+/*
+ * 236. 二叉树的最近公共祖先
+ * tips: 递归。如果left或者right命中，则返回root
+ */
+TreeNode* Solution::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q){
+    if (root == nullptr){
+        return nullptr;
+    }
+    if (root == p || root == q){
+        return root;
+    }
+    TreeNode* left = lowestCommonAncestor(root->left, p, q);;
+    TreeNode* right = lowestCommonAncestor(root->right, p, q);
+
+    if (left == nullptr && right != nullptr){
+        return right;
+    }else if (left != nullptr && right == nullptr){
+        return left;
+    }else if (left != nullptr && right != nullptr){
+        return root;
+    } else
+        return nullptr;
+}
