@@ -48,5 +48,6 @@ public:
     static int search(vector<int> &nums, int target); //33.搜索旋转排序数组 tips: 类比快速排序，用递归空间消耗比较大，建议使用循环
     static int searchQuick(vector<int>& nums, int begin, int end, int target);
     static TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q); //236.二叉树的最近公共祖先，tips: 递归。如果left或者right命中，则返回root
+    static void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);// 33.合并两个有序数组
 };
 #endif //CPPCODER_SOLUTION_H

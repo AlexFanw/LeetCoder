@@ -418,3 +418,27 @@ TreeNode* Solution::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* 
     } else
         return nullptr;
 }
+
+/*
+ * 88.合并两个有序数组
+ */
+
+void Solution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n){
+    int pivot = nums1.size() - 1;
+    while(pivot >= 0){
+        if (m-1 < 0){
+            nums1[pivot] = nums2[n-1];
+            --n;
+        } else if (n-1 < 0){
+            nums1[pivot] = nums1[m-1];
+            --m;
+        } else if (nums1[m-1] > nums2[n-1]){
+            nums1[pivot] = nums1[m-1];
+            --m;
+        }else if (nums1[m-1] <= nums2[n-1]){
+            nums1[pivot] = nums2[n-1];
+            --n;
+        }
+        --pivot;
+    }
+}
