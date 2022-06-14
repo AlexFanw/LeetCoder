@@ -472,3 +472,30 @@ std::pair<int, int> Solution::expandAroundCenter(const string& s, int left, int 
     }
     return {left + 1, right - 1};
 }
+
+/*
+ * 160.相交链表
+ * tips: 两个人分别从A和B出发，各自到达终点后，互换起点（A/B），然后就会相遇
+ */
+
+ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB){
+    ListNode *a = headA;
+    ListNode *b = headB;
+    int flag = 0;
+    while (flag < 3){
+        if (a == b){
+            return a;
+        }
+        a = a->next;
+        b = b->next;
+        if (a == nullptr){
+            a = headB;
+            flag += 1;
+        }
+        if (b == nullptr){
+            b = headA;
+            flag += 1;
+        }
+    }
+    return nullptr;
+}

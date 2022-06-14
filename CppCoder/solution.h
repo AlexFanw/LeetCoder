@@ -51,5 +51,6 @@ public:
     static void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);// 33.合并两个有序数组
     static string longestPalindrome(string s); //5.最长回文子串
     static std::pair<int, int> expandAroundCenter(const string& s, int left, int right);
+    static ListNode *getIntersectionNode(ListNode *headA, ListNode *headB); //160.相交链表，tips: 两个人分别从A和B出发，各自到达终点后，互换起点（A/B），然后就会相遇
 };
 #endif //CPPCODER_SOLUTION_H
