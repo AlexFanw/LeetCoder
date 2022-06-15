@@ -499,3 +499,40 @@ ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB){
     }
     return nullptr;
 }
+
+/*
+ * 200.岛屿数量
+ * tips: 递归，遍历每个点，将上下左右的1都变成0，直到上下左右都不再有1。
+ */
+void detectIslands(vector<vector<char>>& grid, int row, int line){
+    if (row+1 < grid.size() && grid[row+1][line] == '1'){
+        grid[row+1][line] = '0';
+        detectIslands(grid, row+1, line);
+    }
+    if (row-1 >= 0 && grid[row-1][line] == '1'){
+        grid[row-1][line] = '0';
+        detectIslands(grid, row-1, line);
+    }
+    if (line + 1 < grid[0].size() && grid[row][line+1] == '1'){
+        grid[row][line+1] = '0';
+        detectIslands(grid, row, line+1);
+    }
+    if (line-1 >= 0 && grid[row][line-1] == '1'){
+        grid[row][line-1] = '0';
+        detectIslands(grid, row, line-1);
+    }
+}
+
+int Solution::numIslands(vector<vector<char>>& grid){
+    int flag = 0;
+    for (int i = 0; i < grid.size(); ++i) {
+        for (int j = 0; j < grid[0].size(); ++j) {
+            if (grid[i][j] == '1'){
+                flag += 1;
+                detectIslands(grid, i, j);
+            }
+        }
+    }
+    return flag;
+}
+
