@@ -5,6 +5,12 @@ using std::vector;
 using std::string;
 
 int main() {
-    string s = "aacabdkacaa";
-    std::cout << Solution::longestPalindrome(s) << std::endl;
+    vector<int> nums = {0,1,2};
+    vector<vector<int>> result = Solution::permute(nums);
+    for (auto &i: result) {
+        for (auto j: i){
+            std::cout << j;
+        }
+        std::cout << std::endl;
+    }
 }

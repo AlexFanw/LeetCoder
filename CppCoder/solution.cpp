@@ -536,3 +536,22 @@ int Solution::numIslands(vector<vector<char>>& grid){
     return flag;
 }
 
+/*
+ * 46.全排列
+ */
+vector<vector<int>> Solution::permute(vector<int>& nums){
+    vector<vector<int>> result = {{nums[0]}};
+    for (int i = 1; i < nums.size(); ++i) {
+        vector<vector<int>> temp;
+        for (int j = 0; j < result.size(); ++j) {
+            vector<int> t = result[j];
+            for (int k = 0; k <= t.size(); ++k) {
+                vector<int> t_new = t;
+                t_new.insert(t_new.begin() + k, nums[i]);
+                temp.push_back(t_new);
+            }
+        }
+        result = temp;
+    }
+    return result;
+}
