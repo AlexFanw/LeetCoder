@@ -54,5 +54,6 @@ public:
     static ListNode *getIntersectionNode(ListNode *headA, ListNode *headB); //160.相交链表，tips: 两个人分别从A和B出发，各自到达终点后，互换起点（A/B），然后就会相遇
     static int numIslands(vector<vector<char>>& grid); //200.岛屿数量
     static vector<vector<int>> permute(vector<int>& nums); //46.全排列
+    static string addStrings(string num1, string num2); //415.字符串相加，tips:按位相加
     };
 #endif //CPPCODER_SOLUTION_H

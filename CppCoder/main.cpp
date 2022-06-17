@@ -5,12 +5,8 @@ using std::vector;
 using std::string;
 
 int main() {
-    vector<int> nums = {0,1,2};
-    vector<vector<int>> result = Solution::permute(nums);
-    for (auto &i: result) {
-        for (auto j: i){
-            std::cout << j;
-        }
-        std::cout << std::endl;
-    }
+    std::cout << 9333852702227987 + 85731737104263 << std::endl;
+    string num1 = "9333852702227987";
+    string num2 = "85731737104263";
+    std::cout << Solution::addStrings(num1, num2) << std::endl;
 }

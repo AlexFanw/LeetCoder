@@ -4,6 +4,8 @@
 #include <iostream>
 #include "solution.h"
 #include <map>
+#include <cmath>
+
 using std::cout;
 using std::map;
 /*
@@ -555,3 +557,25 @@ vector<vector<int>> Solution::permute(vector<int>& nums){
     }
     return result;
 }
+
+/*
+ * 415.字符串相加
+ * tips: 按位相加
+ */
+
+string Solution::addStrings(string num1, string num2){
+    if (num1.size() < num2.size()) num1.swap(num2);
+    string result = "";
+    int flag = 0;
+    int temp = 0;
+    for (int i = 0; i < num1.size(); ++i) {
+        if (i < num2.size()) temp = (num1[num1.size() - i - 1]-'0') + (num2[num2.size() - i - 1]-'0') + flag;
+        else temp = (num1[num1.size() - i - 1]-'0') + flag;
+        flag = temp / 10;
+        temp = temp % 10;
+        result.insert(0, std::to_string(temp));
+    }
+    if (flag != 0) result.insert(0, std::to_string(flag));
+    return result;
+}
+
